@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    background-color: rgb(16, 16, 16);
+}
+.container {
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-signin {
+    padding: 5px 20px 10px 20px;
+    background-color: rgba(149, 152, 158,0.15);
+    border-radius:15px;
+}
+.form-signin h2 {
+    color: rgb(243, 245, 247);
+    text-align:center;
+}
+.form-signin .wrongLogin p{
+    background-color: pink;
+    color: red;
+    padding:15px;
+    margin:0px 0px 10px 0px;
+    border-radius:10px;
+}
+.form-signin input {
+    padding: 20px;
+    margin: 4px 0px;
+    width: 100%;
+    border-radius: 14px;
+    border: none;
+    background-color: rgb(30 30 30);
+    color: rgb(243, 245, 247);
+}
+.form-signin button {
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, .9);
+    color: #242526;
+    border-radius: 14px;
+    border: none;
+    font-weight: bold;
+    font-size:14px;
+}
+::placeholder {
+    color: rgba(255, 255, 255, .7);
+    font-size: 14px;
+}
+.form-signin p {
+    color: rgba(255, 255, 255, .7);
+    text-align:center;
+}
+.form-signin a {
+    text-decoration: none;
+    color:  rgba(255, 255, 255, .7);
+    font-size:16px;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 0 10px;
+}
+    </style>
+</head>
+<body>
+    <div class="container" th:style="'background-image: url(' + @{/img/bg-login.png} + ')'">
+        <form class="form-signin" th:action="@{/login}" method="post">
+            <h2>Log in with your account</h2>
+            <div th:if="${param.error}" class="wrongLogin">
+                <p>Wrong Username or Password </p>
+            </div>
+            <input id="username" name="username" type="text" placeholder="Username, phone or email">
+            <input id="password" name="password" type="password" placeholder="Password">
+            <button type="submit">Log in</button>
+            <p>-<a th:href="@{/register}">Sign up</a>-</p>
+        </form>
+    </div>
+</body>
+</html>

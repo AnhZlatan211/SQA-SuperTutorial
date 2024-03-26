@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    background-color: rgb(16, 16, 16);
+}
+.register {
+    background-image: url('/img/bg-login.png');
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.register-form {
+    padding: 10px 30px 30px 30px;
+    background-color: rgba(149, 152, 158,0.15);
+    border-radius:15px;
+}
+.register-form h2 {
+    color: rgb(243, 245, 247);
+    text-align:center;
+    margin-bottom:20px;
+}
+.register-form input {
+    display:inline-block;
+    padding: 18px;
+    margin: 5px 0px;
+    width: 100%;
+    border-radius: 14px;
+    border: none;
+    background-color: rgb(30 30 30);
+    color: rgb(243, 245, 247);
+}
+.register-form label {
+    color: rgb(243, 245, 247);
+    align-self:initial;
+}
+.register-form button {
+    width: 100%;
+    padding: 18px;
+    background-color: rgba(255, 255, 255, .9);
+    color: #242526;
+    border-radius: 14px;
+    border: none;
+    font-weight: bold;
+    font-size:14px;
+}
+.register-form button:hover {
+    cursor:pointer;
+}
+::placeholder {
+    color: rgba(255, 255, 255, .7);
+    font-size: 14px;
+}
+  </style>
+</head>
+<body>
+<div class="register">
+    <form class="register-form" th:action="@{/register}" th:object="${user}" method="post" role="form">
+      <h2>Sign up to see content from friends</h2>
+      <label for="fullName">Full Name:</label><br>
+      <input th:field="*{fullName}" type="text" id="fullName" name="fullName" placeholder="Enter your full name..." required autofocus>
+
+      <label for="username">Username, phone or email:</label><br>
+      <input th:field="*{username}" type="text" id="username" name="username" placeholder="Username, phone or email..." required>
+
+      <label for="dob">Date of birth:</label><br>
+      <input th:field="*{dob}" type="text" id="dob" name="dob" placeholder="Date of birth..." required>
+
+      <label for="address">Address:</label><br>
+      <input th:field="*{address}" type="text" id="address" name="address" placeholder="Address..." required>
+
+      <label for="avatar">Avatar:</label><br>
+      <input th:field="*{avatar}" type="text" id="avatar" name="avatar" placeholder="Your image..." required>
+
+      <label for="password">Password:</label><br>
+      <input th:field="*{password}" type="password" id="password" name="password" placeholder="Password..." required>
+
+      <button type="submit">Sign up</button>
+    </form>
+</div>
+</body>
+</html>
