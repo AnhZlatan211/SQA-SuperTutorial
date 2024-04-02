@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Homepage</title>
 </head>
+
 <body>
     <div class="header">
         <div class="nav_item">
@@ -23,6 +24,11 @@
     <div class="content">
         <div class="pizza"></div>
     </div>
+    <div class="form-wrapper">
+        <div class="form">
+
+        </div>
+    </div>
 </body>
 <style>
     body {
@@ -30,6 +36,26 @@
         margin: 0;
         box-sizing: border-box;
         padding-bottom: 50px;
+        overflow: hidden;
+    }
+
+    .form-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form {
+        width: 600px;
+        height: 550px;
+        background-color: white;
+        border-radius: 30px;
     }
 
     .nav {
@@ -43,10 +69,12 @@
         font-size: medium;
         cursor: pointer;
     }
-    .content{
+
+    .content {
         width: 95%;
         margin: auto;
     }
+
     .header {
         display: flex;
         background-color: black;
@@ -55,18 +83,21 @@
         text-decoration: none;
         justify-content: space-around;
     }
-    .order{
+
+    .order {
         text-align: right;
         margin-top: 10px;
         margin-right: 20px;
     }
-    .pizza{
+
+    .pizza {
         display: grid;
         grid-template-columns: auto auto auto;
         gap: 25px;
         margin-top: 20px;
     }
-    .pizza_item{
+
+    .pizza_item {
         margin-top: 20;
         text-align: center;
         box-shadow: 4px 4px 4px 4px #888888;
@@ -74,18 +105,59 @@
         padding-top: 5px;
         padding-bottom: 10px;
     }
-    .pizza_item_image{
+
+    .pizza_item_image {
         width: 80%;
         object-fit: cover;
         margin: auto;
         border-radius: 20px;
     }
-    .pizza_item_button{
+
+    .pizza_item_button {
         padding: 10px;
         background-color: black;
         color: white;
         border-radius: 10px;
         cursor: pointer;
+    }
+
+    .active {
+        display: none;
+    }
+
+    .form {
+        text-align: center;
+    }
+
+    .select_image {
+        width: 60%;
+        margin-left: auto;
+        height: 200px;
+        border-radius: 30px;
+    }
+
+    .form_header {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .topping {
+        display: flex;
+        justify-content: space-around;
+    }
+    .off {
+        cursor: pointer;
+    }
+    .finish-btn {
+        padding: 10px;
+        background-color: black;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    .finish-btn:hover{
+        background-color: white;
+        color: black;
     }
 </style>
 <script>
@@ -94,55 +166,55 @@
         id: 1,
         name: "Pizza hut with chese",
         price: 20,
-        image:"https://media.istockphoto.com/id/1349560847/vi/anh/pizza-x%C3%BAc-x%C3%ADch-v%C3%A0-rau-tr%C3%AAn-n%E1%BB%81n-t%E1%BB%91i.jpg?s=612x612&w=0&k=20&c=f-evQa9-xbY2Y2nuwHRZiimByz_fGHg_tqnnlxC8zVo=",
+        image: "https://media.istockphoto.com/id/1349560847/vi/anh/pizza-x%C3%BAc-x%C3%ADch-v%C3%A0-rau-tr%C3%AAn-n%E1%BB%81n-t%E1%BB%91i.jpg?s=612x612&w=0&k=20&c=f-evQa9-xbY2Y2nuwHRZiimByz_fGHg_tqnnlxC8zVo=",
         rate: 5
     },
     {
         id: 1,
         name: "Pizza hut with kha",
         price: 20,
-        image:"https://media.istockphoto.com/id/1349560847/vi/anh/pizza-x%C3%BAc-x%C3%ADch-v%C3%A0-rau-tr%C3%AAn-n%E1%BB%81n-t%E1%BB%91i.jpg?s=612x612&w=0&k=20&c=f-evQa9-xbY2Y2nuwHRZiimByz_fGHg_tqnnlxC8zVo=",
+        image: "https://media.istockphoto.com/id/1349560847/vi/anh/pizza-x%C3%BAc-x%C3%ADch-v%C3%A0-rau-tr%C3%AAn-n%E1%BB%81n-t%E1%BB%91i.jpg?s=612x612&w=0&k=20&c=f-evQa9-xbY2Y2nuwHRZiimByz_fGHg_tqnnlxC8zVo=",
         rate: 5
     },
     {
         id: 1,
         name: "Pizza hut with potatos",
         price: 20,
-        image:"https://media.istockphoto.com/id/1349560847/vi/anh/pizza-x%C3%BAc-x%C3%ADch-v%C3%A0-rau-tr%C3%AAn-n%E1%BB%81n-t%E1%BB%91i.jpg?s=612x612&w=0&k=20&c=f-evQa9-xbY2Y2nuwHRZiimByz_fGHg_tqnnlxC8zVo=",
+        image: "https://media.istockphoto.com/id/1349560847/vi/anh/pizza-x%C3%BAc-x%C3%ADch-v%C3%A0-rau-tr%C3%AAn-n%E1%BB%81n-t%E1%BB%91i.jpg?s=612x612&w=0&k=20&c=f-evQa9-xbY2Y2nuwHRZiimByz_fGHg_tqnnlxC8zVo=",
         rate: 5
     },
     {
         id: 1,
         name: "Pizza hut with ice",
         price: 20,
-        image:"https://media.istockphoto.com/id/1349560847/vi/anh/pizza-x%C3%BAc-x%C3%ADch-v%C3%A0-rau-tr%C3%AAn-n%E1%BB%81n-t%E1%BB%91i.jpg?s=612x612&w=0&k=20&c=f-evQa9-xbY2Y2nuwHRZiimByz_fGHg_tqnnlxC8zVo=",
+        image: "https://media.istockphoto.com/id/1349560847/vi/anh/pizza-x%C3%BAc-x%C3%ADch-v%C3%A0-rau-tr%C3%AAn-n%E1%BB%81n-t%E1%BB%91i.jpg?s=612x612&w=0&k=20&c=f-evQa9-xbY2Y2nuwHRZiimByz_fGHg_tqnnlxC8zVo=",
         rate: 5
     }, {
         id: 1,
         name: "Pizza hut with blue",
         price: 20,
-        image:"https://media.istockphoto.com/id/1349560847/vi/anh/pizza-x%C3%BAc-x%C3%ADch-v%C3%A0-rau-tr%C3%AAn-n%E1%BB%81n-t%E1%BB%91i.jpg?s=612x612&w=0&k=20&c=f-evQa9-xbY2Y2nuwHRZiimByz_fGHg_tqnnlxC8zVo=",
+        image: "https://media.istockphoto.com/id/1349560847/vi/anh/pizza-x%C3%BAc-x%C3%ADch-v%C3%A0-rau-tr%C3%AAn-n%E1%BB%81n-t%E1%BB%91i.jpg?s=612x612&w=0&k=20&c=f-evQa9-xbY2Y2nuwHRZiimByz_fGHg_tqnnlxC8zVo=",
         rate: 5
     },
     {
         id: 1,
         name: "Pizza hut with d",
         price: 20,
-        image:"https://media.istockphoto.com/id/1349560847/vi/anh/pizza-x%C3%BAc-x%C3%ADch-v%C3%A0-rau-tr%C3%AAn-n%E1%BB%81n-t%E1%BB%91i.jpg?s=612x612&w=0&k=20&c=f-evQa9-xbY2Y2nuwHRZiimByz_fGHg_tqnnlxC8zVo=",
+        image: "https://media.istockphoto.com/id/1349560847/vi/anh/pizza-x%C3%BAc-x%C3%ADch-v%C3%A0-rau-tr%C3%AAn-n%E1%BB%81n-t%E1%BB%91i.jpg?s=612x612&w=0&k=20&c=f-evQa9-xbY2Y2nuwHRZiimByz_fGHg_tqnnlxC8zVo=",
         rate: 5
     },
     {
         id: 1,
         name: "Pizza hut with da",
         price: 20,
-        image:"https://media.istockphoto.com/id/1349560847/vi/anh/pizza-x%C3%BAc-x%C3%ADch-v%C3%A0-rau-tr%C3%AAn-n%E1%BB%81n-t%E1%BB%91i.jpg?s=612x612&w=0&k=20&c=f-evQa9-xbY2Y2nuwHRZiimByz_fGHg_tqnnlxC8zVo=",
+        image: "https://media.istockphoto.com/id/1349560847/vi/anh/pizza-x%C3%BAc-x%C3%ADch-v%C3%A0-rau-tr%C3%AAn-n%E1%BB%81n-t%E1%BB%91i.jpg?s=612x612&w=0&k=20&c=f-evQa9-xbY2Y2nuwHRZiimByz_fGHg_tqnnlxC8zVo=",
         rate: 5
     },
     {
         id: 1,
         name: "Pizza hut with dsa",
         price: 20,
-        image:"https://media.istockphoto.com/id/1349560847/vi/anh/pizza-x%C3%BAc-x%C3%ADch-v%C3%A0-rau-tr%C3%AAn-n%E1%BB%81n-t%E1%BB%91i.jpg?s=612x612&w=0&k=20&c=f-evQa9-xbY2Y2nuwHRZiimByz_fGHg_tqnnlxC8zVo=",
+        image: "https://media.istockphoto.com/id/1349560847/vi/anh/pizza-x%C3%BAc-x%C3%ADch-v%C3%A0-rau-tr%C3%AAn-n%E1%BB%81n-t%E1%BB%91i.jpg?s=612x612&w=0&k=20&c=f-evQa9-xbY2Y2nuwHRZiimByz_fGHg_tqnnlxC8zVo=",
         rate: 5
     }
     ]
@@ -150,7 +222,7 @@
         const listItem = document.createElement('div');
         listItem.classList.add('pizza_item')
         listItem.innerHTML = `
-            <div>
+            <div class="">
                 <image src="${item.image}" class="pizza_item_image"/>
                 <h2>${item.name}</h2>
                 <p>Price: $${item.price}</p>
@@ -160,5 +232,71 @@
         `
         listPizza.appendChild(listItem);
     })
+    const pizzaItem = document.querySelectorAll(".pizza_item")
+    const form = document.querySelector('.form');
+    const formwrapper = document.querySelector('.form-wrapper')
+
+    formwrapper.classList.add('active')
+    pizzaItem.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            formwrapper.classList.toggle('active');
+            const selectedPizza = {
+                image: arr[index].image,
+                name: arr[index].name,
+                price: arr[index].price,
+                rating: arr[index].rate
+            };
+            form.innerHTML = `
+            <div class="form_header">
+                <p></p>
+                <h3>Order pizza</h3>
+                <p class="off"> x </p>
+            </div>
+            <img class="select_image" src="${selectedPizza.image}"/>
+            <p>${selectedPizza.name}</p>
+            <div class="">
+                <h4>Topping</h4>
+                <div class="topping">
+                    <div>
+                    <p>Cheese</p>
+                    <p>Price : 2$<p>
+                    <input type="checkbox" name="topping" value="cheese"/>
+                </div>
+                <div>
+                    <p>Hotdog</p>
+                    <p>Price : 2$<p>
+                    <input type="checkbox" name="topping" value="hotdog"/>
+                </div>    
+                <div>
+                    <p>Potato</p>
+                    <p>Price : 2$<p>
+                    <input type="checkbox" name="topping" value="potato"/>
+                </div>
+                </div>
+            </div>
+            <button class="finish-btn">
+                Finish
+            </button>
+        `;
+
+            const off = document.querySelector('.off');
+            off.addEventListener('click', () => {
+                formwrapper.classList.toggle('active');
+            });
+
+            const finishBtn = document.querySelector('.finish-btn');
+            finishBtn.addEventListener('click', () => {
+                let totalPrice = parseFloat(selectedPizza.price);
+                const toppings = document.querySelectorAll('input[name="topping"]:checked');
+                toppings.forEach(topping => {
+                    totalPrice += 2;
+                });
+                alert(`Total Price: $${totalPrice.toFixed(2)}`);
+                formwrapper.classList.toggle('active');
+            });
+        });
+    });
+
 </script>
+
 </html>
